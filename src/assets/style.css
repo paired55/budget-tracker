@@ -150,3 +150,9 @@ input[type='number'] {
 .list li:hover .delete-btn {
 	opacity: 1;
 }
+
+.amountWarning {
+	font-size: 1rem;
+	font-style: italic;
+	color: #c0392b;
+}

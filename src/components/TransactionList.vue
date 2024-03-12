@@ -1,12 +1,25 @@
 <template>
 	<h3>History</h3>
 	<ul id="list" class="list">
-		<li class="minus">
-			Cash <span>-400 EGP</span> <button class="delete-btn">X</button>
+		<li v-for="item in transactions" :class="transactionClass(item)">
+			{{ item.text }} <span>{{ item.amount }} EGP</span>
 		</li>
 	</ul>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { defineProps, ref, computed } from 'vue';
+
+const props = defineProps({
+	transactions: {
+		type: Array,
+		required: true,
+	},
+});
+
+const transactionClass = computed(() => {
+	return (item) => {
+		return item.amount < 0 ? 'minus' : 'plus';
+	};
+});
 </script>
