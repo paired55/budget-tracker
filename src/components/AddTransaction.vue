@@ -29,6 +29,8 @@
 import { defineProps, ref, computed } from 'vue';
 import { useToast } from 'vue-toastification';
 
+const emit = defineEmits(['transactionSubmitted'])
+
 let id = 0;
 const itemDescription = ref('');
 const itemAmount = ref('');
@@ -44,14 +46,16 @@ const props = defineProps({
 function addTheTransaction() {
 	if (!itemAmount.value || !itemDescription.value ) {
 		toast.error('Please fill both fields')
-	} else {
-		toast.success('Transaction added!')
-		props.transactions.push({
-			id: id++,
-			text: itemDescription.value,
-			amount: itemAmount.value,
-		});
+		return
+	} 
+	
+	const transactionData = {
+		id: id++,
+		text: itemDescription.value,
+		amount: itemAmount.value,
 	}
+
+	emit('transactionSubmitted', transactionData);
 	itemDescription.value = '';
 	itemAmount.value = null;
 }
