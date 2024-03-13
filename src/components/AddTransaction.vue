@@ -5,13 +5,13 @@
 			<label for="text">Description</label>
 			<input
 				type="text"
-				placeholder="Enter description..."
+				placeholder="eg. groceries, transportation, coffee..."
 				id="description"
 				v-model="itemDescription"
 			/>
 		</div>
 		<div class="form-control">
-			<label for="amount">Amount <br><span class="amountWarning">(Negative values for expenses & positive for income)</span></br></label>
+			<label for="amount">Amount <br><span class="amountWarning">(Negative = expense, Positive = income)</span></br></label>
 			<input
 				type="number"
 				id="amount"
