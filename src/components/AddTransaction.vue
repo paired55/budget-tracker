@@ -2,7 +2,7 @@
 	<h3>Add New Transaction</h3>
 	<form id="form">
 		<div class="form-control">
-			<label for="text">Description</label>
+			<label for="description">Description</label>
 			<input
 				type="text"
 				placeholder="eg. groceries, transportation, coffee..."
@@ -27,10 +27,12 @@
 
 <script setup>
 import { defineProps, ref, computed } from 'vue';
+import { useToast } from 'vue-toastification';
 
 let id = 0;
 const itemDescription = ref('');
-const itemAmount = ref(null);
+const itemAmount = ref('');
+const toast = useToast();
 
 const props = defineProps({
 	transactions: {
@@ -40,7 +42,10 @@ const props = defineProps({
 });
 
 function addTheTransaction() {
-	if (itemAmount.value > 0 || itemAmount.value < 0) {
+	if (!itemAmount.value || !itemDescription.value ) {
+		toast.error('Please fill both fields')
+	} else {
+		toast.success('Transaction added!')
 		props.transactions.push({
 			id: id++,
 			text: itemDescription.value,

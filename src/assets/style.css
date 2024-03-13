@@ -92,7 +92,7 @@ input[type="number"] {
 
 .btn {
 	cursor: pointer;
-	background-color: #f799f2;
+	background-color: #007791;
 	box-shadow: var(--box-shadow);
 	color: #000000;
 	border: 0;
@@ -103,6 +103,7 @@ input[type="number"] {
 	width: 100%;
 	border-radius: 15px;
 	font-weight: bold;
+	color: white;
 }
 
 .btn:focus,
@@ -137,7 +138,7 @@ input[type="number"] {
 
 .delete-btn {
 	cursor: pointer;
-	background-color: #e74c3c;
+	background-color: #007791;
 	border: 0;
 	color: #fff;
 	font-size: 20px;
@@ -149,6 +150,7 @@ input[type="number"] {
 	transform: translate(-100%, -50%);
 	opacity: 0;
 	transition: opacity 0.3s ease;
+	border-radius: 10px;
 }
 
 .list li:hover .delete-btn {
@@ -158,7 +160,7 @@ input[type="number"] {
 .amountWarning {
 	font-size: 1rem;
 	font-style: italic;
-	color: #2c0072;
+	color: #007791;
 }
 
 #app {
@@ -169,6 +171,26 @@ input[type="number"] {
 	background-color: white;
 }
 
+.author {
+	font-size: 1rem;
+	font-style: italic;
+	font-weight: 300;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	padding: 1rem;
+	margin: 0;
+}
+
+.mygit {
+	text-decoration: none;
+	color: black;
+}
+
+.mygit:hover {
+	color: red;
+}
+
 @media screen and (max-width: 768px) {
 	#app {
 		width: 90%; /* Adjust width as needed for smaller screens */
@@ -176,5 +198,15 @@ input[type="number"] {
 
 	.container {
 		width: 90%;
+	}
+
+	.author {
+		position: static;
+		padding: 0;
+		text-align: center;
+	}
+
+	.delete-btn {
+		opacity: 1;
 	}
 }
